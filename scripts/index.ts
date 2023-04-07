@@ -17,9 +17,14 @@ function start(): void {
 
 	let player1Symbol = document.getElementById('p1Select') as HTMLSelectElement;
 	let player2Symbol = document.getElementById('p2Select') as HTMLSelectElement;
+	let player1NameInput = document.getElementById('player1-name-input') as HTMLInputElement;
+	let player2NameInput = document.getElementById('player2-name-input') as HTMLInputElement;
 
 	if(player1Symbol.value === player2Symbol.value){
-		alert("player 1's symbol cannot be the same as player 2's");
+		alert("player 1's symbol cannot be the same as player 2's.");
+
+	}else if(player1NameInput.value === '' || player2NameInput.value === ''){
+		alert("All fields need to be filled in.");
 
 	}else {
 		let containerSquares = document.getElementById('container-squares') as HTMLDivElement;
@@ -40,9 +45,10 @@ function start(): void {
 
 };
 
-
 function mark(square: number): void {
 	
+	let player1NameInput = document.getElementById('player1-name-input') as HTMLInputElement;
+	let player2NameInput = document.getElementById('player2-name-input') as HTMLInputElement
 
  	if(playerCurrentSymbol === 'x'){
 		squares[square - 1].classList.add('squaresX');
@@ -52,7 +58,7 @@ function mark(square: number): void {
 		for(let i: number = 0; i < combinatiosn.length; i++){
 			if(combinatiosn[i].every(item => player1SquaresMarked.includes(item))){
 				setTimeout(() => {
-					alert('Player 1 wins.');			
+					alert(`Congrats ${player1NameInput.value}, you won!`);			
 					playerCurrentSymbol = '';
 					location.reload();					
 
@@ -70,7 +76,7 @@ function mark(square: number): void {
 		for(let i: number = 0; i < combinatiosn.length; i++){
 			if(combinatiosn[i].every(item => player2SquaresMarked.includes(item))){
 				setTimeout(() => {
-					alert('Player 2 wins.');	
+					alert(`Congrats ${player2NameInput.value}, you won!`);			
 					playerCurrentSymbol = '';	
 					location.reload();
 

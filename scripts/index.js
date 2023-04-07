@@ -16,8 +16,13 @@ let squares = document.getElementsByClassName('squares');
 function start() {
     let player1Symbol = document.getElementById('p1Select');
     let player2Symbol = document.getElementById('p2Select');
+    let player1NameInput = document.getElementById('player1-name-input');
+    let player2NameInput = document.getElementById('player2-name-input');
     if (player1Symbol.value === player2Symbol.value) {
-        alert("player 1's symbol cannot be the same as player 2's");
+        alert("player 1's symbol cannot be the same as player 2's.");
+    }
+    else if (player1NameInput.value === '' || player2NameInput.value === '') {
+        alert("All fields need to be filled in.");
     }
     else {
         let containerSquares = document.getElementById('container-squares');
@@ -34,6 +39,8 @@ function start() {
 }
 ;
 function mark(square) {
+    let player1NameInput = document.getElementById('player1-name-input');
+    let player2NameInput = document.getElementById('player2-name-input');
     if (playerCurrentSymbol === 'x') {
         squares[square - 1].classList.add('squaresX');
         player1SquaresMarked.push(square);
@@ -41,7 +48,7 @@ function mark(square) {
         for (let i = 0; i < combinatiosn.length; i++) {
             if (combinatiosn[i].every(item => player1SquaresMarked.includes(item))) {
                 setTimeout(() => {
-                    alert('Player 1 wins.');
+                    alert(`Congrats ${player1NameInput.value}, you won!`);
                     playerCurrentSymbol = '';
                     location.reload();
                 }, 600);
@@ -57,7 +64,7 @@ function mark(square) {
         for (let i = 0; i < combinatiosn.length; i++) {
             if (combinatiosn[i].every(item => player2SquaresMarked.includes(item))) {
                 setTimeout(() => {
-                    alert('Player 2 wins.');
+                    alert(`Congrats ${player2NameInput.value}, you won!`);
                     playerCurrentSymbol = '';
                     location.reload();
                 }, 600);

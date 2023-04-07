@@ -16,20 +16,22 @@
 }
 
 .config {
-	width: 380px;
-	height: 200px;
-	background: #eee;
-	border-radius: 10px;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-areas:
-	'p1Paragraph p2Paragraph' 
-	'p1Select  p2Select'
-	'buttonStart buttonStart';
-	text-align: center;
-	padding: 10px;
-	gap: 10px;
-	transition: .5s;
+  width: 460px;
+  height: 310px;
+  background: #eee;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  'p1Paragraph    p2Paragraph   ' 
+  'p1Select     p2Select    ' 
+  'player1NameLabel player2NameLabel' 
+  'player1NameInput player2NameInput' 
+  'button    button   ';
+  text-align: center;
+  padding: 20px;
+  gap: 30px;
+  transition: .5s;
 }
 
 .p1Paragraph, .p2Paragraph {
@@ -61,8 +63,42 @@ select {
   font-size: 20px;
 }
 
+.player1-name-label {
+	grid-area: player1NameLabel;
+}
+
+.player2-name-label {
+	grid-area: player2NameLabel;
+}
+
+#player1-name-input {
+	grid-area: player1NameInput;
+	width: 170px;
+	font-size: 20px;
+	height: 30px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	text-align: center;
+	display: block;
+	margin: auto;
+}
+
+#player2-name-input {
+	grid-area: player2NameInput;
+	width: 170px;
+	font-size: 20px;
+	height: 30px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	text-align: center;
+	display: block;
+	margin: auto;
+}
+
 .start{
-	grid-area: buttonStart;
+	grid-area: button;
 	width: 180px;
 	margin: 0 auto;
 	height: 40px;
@@ -154,9 +190,6 @@ select {
 	}
 }
 
-
-
-
 /* Squares Circles  */
 
 .squaresCircles::before {
@@ -184,4 +217,117 @@ select {
 		width: 100px;
 		height: 100px;
 	}
+}
+
+@media screen and (max-width: 500px){
+	.config{
+	  width: 90%;
+	  height: auto;
+	  background: #eee;
+	  border-radius: 10px;
+	  display: grid;	  
+	  grid-template-columns: 100%;
+	  grid-template-areas:
+		  'p1Paragraph'  
+		  'p1Select'  
+		  'player1NameLabel'  
+		  'player1NameInput'  
+		  'buttonStart'
+		  'p2Paragraph'
+		  'p2Select'
+		  'player2NameLabel'
+		  'player2NameInput'
+		  'button';
+	  text-align: center;
+	  padding: 20px;
+	  gap: 30px;
+	  transition:
+  }
+
+  .container-squares {
+	  width: 90vw;
+	  height: 90vw;
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	  gap: 10px;
+	  transition: .5s;
+	  transform: scale(0, 0);
+	  position: absolute;
+	}
+
+	.squaresX::before {
+	  content: '';
+	  background: blue;
+	  width: 15px;
+	  height: 90%;
+	  border-radius: 20px;
+	  position: absolute;
+	  top: 0;
+	  left: 50%;
+	  transform: rotate(-45deg) translate(-50%, 0) scale(1, 1);
+	  animation: squaresX2 0.3s;
+	}
+
+	.squaresX::after {
+	  content: '';
+	  background: blue;
+	  width: 15px;
+	  height: 90%;
+	  border-radius: 20px;
+	  position: absolute;
+	  top: 0;
+	  left: 50%;
+	  transform: rotate(45deg) translate(-0%, 10%) scale(1, 1);
+	  animation: squaresX1 0.3s;
+	}
+
+	.squaresCircles::before {
+	  content: '';
+	  height: 60%;
+	  width: 60%;
+	  display: block;
+	  background: transparent;
+	  position: absolute;
+	  border-radius: 100%;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%) scale(1, 1);
+	  border: 12px solid red;
+	  animation: circles 0.5s;
+	}
+
+	@keyframes squaresX1{
+		0% {
+			transform: rotate(45deg) translate(-0%, 10%) scale(0, 0);
+		}
+
+		100% {
+			transform: rotate(45deg) translate(-0%, 10%) scale(1, 1);
+		}
+	}
+
+	@keyframes squaresX2{
+		0% {
+			transform: rotate(-45deg) translate(-50%, 0) scale(0, 0);
+		}
+
+		100% {
+			transform: rotate(-45deg) translate(-50%, 0) scale(1, 1);
+		}
+	}
+
+	@keyframes circles {
+	0% {
+		width: 0%;
+		height: 0%;
+		transform: translate(-50%, -50%) scale(0, 0);
+	}
+
+	100% {
+		width: 60%;
+		height: 60%;
+		transform: translate(-50%, -50%) scale(1, 1);
+	}
+}
+
 }
