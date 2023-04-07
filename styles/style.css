@@ -29,6 +29,11 @@
   position: relative;
 }
 
+.squares:hover {
+  background: #bdbdbd;
+  transition: .2s;
+}
+
 /* Squares X  */
 
 .squaresX::after {
@@ -37,11 +42,14 @@
 	width: 15px;
 	height: 130px;
 	border-radius: 20px;
-	transform: rotate(45deg);
 	position: absolute;
 	top: 0;
 	left: 50%;
+	transition: 0.5s;
+	transform: rotate(45deg);
+	animation: squaresX2 0.5s;
 }
+
 
 .squaresX::before {
 	content: '';
@@ -49,22 +57,61 @@
 	width: 15px;
 	height: 130px;
 	border-radius: 20px;
-	transform: rotate(-45deg);
 	position: absolute;
 	top: 0;
 	left: 50%;
+	transform: rotate(-45deg);
+	animation: squaresX1 0.3s;
 }
+
+@keyframes squaresX1{
+	0% {
+		transform:  scale(0, 0) rotate(0deg);
+	}
+
+	100% {
+		transform:   scale(1, 1) rotate(-45deg);
+	}
+}
+
+@keyframes squaresX2{
+	0% {
+		transform:   scale(0, 0) rotate(0deg);
+	}
+
+	100% {
+		transform:   scale(1, 1) rotate(45deg);
+	}
+}
+
+
+
+
+/* Squares Circles  */
 
 .squaresCircles::before {
 	content: '';
+	height: 100px;
+	width: 100px;
 	display: block;
 	background: transparent;
-	width: 100px;
-	height: 100px;
 	position: absolute;
 	border-radius: 100%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border: 12px solid red;
+	animation: circles 0.5s;
+}
+
+@keyframes circles {
+	0% {
+		width: 0px;
+		height: 0px;
+	}
+
+	100% {
+		width: 100px;
+		height: 100px;
+	}
 }

@@ -43,7 +43,7 @@ function mark(square: number): void {
 					alert('Player 2 wins.')				
 					location.reload()
 
-				}, 0)
+				}, 600)
 
 			};	
 

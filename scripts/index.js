@@ -38,7 +38,7 @@ function mark(square) {
                 setTimeout(() => {
                     alert('Player 2 wins.');
                     location.reload();
-                }, 0);
+                }, 600);
             }
             ;
         }
