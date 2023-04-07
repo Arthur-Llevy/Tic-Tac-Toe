@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Inconsolata', monospace;
 }
 
 .container {
@@ -12,12 +15,79 @@
 	height: 100vh;
 }
 
+.config {
+	width: 380px;
+	height: 200px;
+	background: #eee;
+	border-radius: 10px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-areas:
+	'p1Paragraph p2Paragraph' 
+	'p1Select  p2Select'
+	'buttonStart buttonStart';
+	text-align: center;
+	padding: 10px;
+	gap: 10px;
+	transition: .5s;
+}
+
+.p1Paragraph, .p2Paragraph {
+  font-size: 20px;
+}
+
+.p1Paragraph {
+  grid-area: p1Paragraph;
+}
+
+.p2Paragraph {
+  grid-area: p2Paragraph;
+}
+
+.p1Select{
+	grid-area: p1Select;
+}
+
+.p2Select{
+	grid-area: p2Select;
+}
+
+select {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.start{
+	grid-area: buttonStart;
+	width: 180px;
+	margin: 0 auto;
+	height: 40px;
+	border-radius: 10px;
+	font-size: 20px;
+	outline: none;
+	border: none;
+	transition: 0.2s;
+	background: #aeaeae;
+}
+
+.start:hover {
+	background: #808080;
+	transition: 0.2s;
+}
+
 .container-squares {
 	width: 450px;
 	height: 450px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 10px;
+	transition: .5s;
+	transform: scale(0, 0);
+	position: absolute;
 }
 
 .squares {

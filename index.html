@@ -10,7 +10,7 @@
 
 	<div class="container">
 
-		<div class="container-squares">
+		<div class="container-squares" id="container-squares">
 			
 			<div onclick="mark(1)" class="squares" ></div>
 			<div onclick="mark(2)" class="squares"></div>
@@ -21,6 +21,26 @@
 			<div onclick="mark(7)" class="squares"></div>
 			<div onclick="mark(8)" class="squares"></div>
 			<div onclick="mark(9)" class="squares"></div>
+
+		</div>
+
+		<div class="config" id="config">
+
+      		<p class="p1Paragraph">Player 1 symbol</p>
+
+			<select class="p1Select" id="p1Select">
+				<option value="x">X</option>
+				<option value="c">O</option>
+			</select>
+
+			<p class='p2Paragraph'>Player 2 symbol</p>
+
+			<select class="p2Select" id="p2Select">
+				<option value="x">X</option>
+				<option value="c">O</option>
+			</select>
+
+			<button onclick="start()" class="start">Start</button>
 
 		</div>
 
