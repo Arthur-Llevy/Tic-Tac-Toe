@@ -64,14 +64,22 @@ function mark(square: number): void {
 
 				}, 600)
 
-			};	
+			};			
 
 		};
+
+
+		if(player1SquaresMarked.length + player2SquaresMarked.length === 9){
+			setTimeout(() => {
+				alert('Draw.');
+				location.reload();
+			}, 600); 
+		};		
 
 	}else {
 		squares[square - 1].classList.add('squaresCircles');
 		playerCurrentSymbol = 'x';
-		player2SquaresMarked.push(square);
+		player2SquaresMarked.push(square);	
 
 		for(let i: number = 0; i < combinatiosn.length; i++){
 			if(combinatiosn[i].every(item => player2SquaresMarked.includes(item))){
@@ -80,11 +88,18 @@ function mark(square: number): void {
 					playerCurrentSymbol = '';	
 					location.reload();
 
-				}, 600)
-
-			};	
+				}, 600)			
 
 		};
+
+		};
+
+		if(player1SquaresMarked.length + player2SquaresMarked.length === 9){
+			setTimeout(() => {
+				alert('Draw.');
+				location.reload();
+			}, 600); 
+		};	
 
 	};
 

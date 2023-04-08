@@ -56,6 +56,13 @@ function mark(square) {
             ;
         }
         ;
+        if (player1SquaresMarked.length + player2SquaresMarked.length === 9) {
+            setTimeout(() => {
+                alert('Draw.');
+                location.reload();
+            }, 600);
+        }
+        ;
     }
     else {
         squares[square - 1].classList.add('squaresCircles');
@@ -70,6 +77,13 @@ function mark(square) {
                 }, 600);
             }
             ;
+        }
+        ;
+        if (player1SquaresMarked.length + player2SquaresMarked.length === 9) {
+            setTimeout(() => {
+                alert('Draw.');
+                location.reload();
+            }, 600);
         }
         ;
     }
