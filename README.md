@@ -3,4 +3,4 @@
 
 # Gif of website
 
-<img src="./assets/gif.gif">
+<img src="./assets/gif.gif" width="95%">
